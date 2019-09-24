@@ -42,8 +42,10 @@ $('#todo-form').on(
             if (end < begin) {
                 // Really not possible !
                 $('#todo-manage').attr('disabled', 'disabled');
+                $('.alert.alert-danger').removeClass('d-none');
             } else {
                 $('#todo-manage').removeAttr('disabled');
+                $('.alert.alert-danger').addClass('d-none');
             }
 
         } else {
@@ -67,13 +69,39 @@ $('#todo-title').on(
     }
 );
 
-$('#begin').on('change', (event) => {
-    $('#end').attr('min', new MyDate($('#begin').val()));
-    $('#end').val(new MyDate($('#begin').val()));
+$('#begin').on('blur', function(event) {
+    const begin = new Date($('#begin').val());
+    const end = new Date($('#end').val());
+
+    if (end < begin && end) {
+        console.log('Pb');
+        $('.alert.alert-danger').removeClass('d-none');
+    } else {
+        console.log('Ok');
+        $('.alert.alert-danger').addClass('d-none');
+    }
 });
 
-// Friendly date management
+$('#end').on('blur', function(event) {
+    const begin = new Date($('#begin').val());
+    const end = new Date($('#end').val());
+
+    if (end < begin && begin) {
+        console.log('Pb');
+        $('.alert.alert-danger').removeClass('d-none');
+    } else {
+        console.log('Ok');
+        $('.alert.alert-danger').addClass('d-none');
+    }
+});
+
+/*$('#begin').on('change', (event) => {
+    $('#end').attr('min', new MyDate($('#begin').val()));
+    $('#end').val(new MyDate($('#begin').val()));
+});*/
+
+/* Friendly date management
 $('#begin').val(new MyDate().toString()); // Sets the begin date as today
 $('#end').val(new MyDate().toString()); // Sets the end date as today
 $('#begin').attr('min', new MyDate().toString());
-$('#end').attr('min', new MyDate().toString());
+$('#end').attr('min', new MyDate().toString());*/
