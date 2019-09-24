@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width;initial-scale=1.0;maximum-scale=1.0">
+
+        <title>Lovely Nice Todo</title>
+
+        <!-- Link some styles -->
+        <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Main container for my lovely nice todo list -->
+        <div class="container-fluid">
+            <main class="row">
+                <div id="todo-list" class="col-xl-8 col-lg-8 col-12">
+                    <!-- My super todolist is here... -->
+                    <table class="table table-stripped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="form-control" id="check-all">
+                                </th>
+                                <th>
+                                    Todo
+                                </th>
+                                <th>
+                                    &nbsp;
+                                </th>
+                            </tr>
+                        </thead>
+                        <!-- Here my dynamic todos-->
+                        <tbody>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <span id="really-todo">0</span> choses à faire /
+                                    <span id="done-todo">0</span> choses réalisées
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div id="todo-form-container" class="col-lg-4 col-12">
+                    <form id="todo-form">
+                        <div class="form-group">
+                            <input 
+                                type="text"
+                                placeholder="A faire..."
+                                class="form-control"
+                                name="todo-title"
+                                id="todo-title"
+                            >
+                        </div>
+                        <!-- Here, the error placeholder (if todo is empty, or...) -->
+                        <div class="alert alert-warning hidden">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="date"
+                                name="begin"
+                                id="begin"
+                                min=""
+                                placeholder="Du..."
+                                class="form-control col-6"
+                            >
+                            <input type="date"
+                                name="end"
+                                id="end"
+                                min=""
+                                placeholder="Au..."
+                                class="form-control col-6"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <button
+                                id="todo-manage"
+                                disabled
+                                class="btn btn-outline-primary"
+                            >
+                                Ajouter
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <!-- Add our scripts -->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>
