@@ -1,0 +1,20 @@
+{
+  "name": "nice-todo",
+  "version": "1.0.0",
+  "description": "Simple javascript todo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "ecma",
+    "script"
+  ],
+  "author": "Moi",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
+  }
+}
