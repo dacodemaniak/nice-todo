@@ -105,3 +105,15 @@ $('#begin').val(new MyDate().toString()); // Sets the begin date as today
 $('#end').val(new MyDate().toString()); // Sets the end date as today
 $('#begin').attr('min', new MyDate().toString());
 $('#end').attr('min', new MyDate().toString());*/
+
+/**
+ * Form handling
+ */
+$('#todo-form').on(
+    'submit',
+    // ES6 arrow function equiv : function(event){}
+    (event) => {
+        event.preventDefault(); // Empêche l'événement par défaut !
+        console.log('Hey hey... I want to manage myself...');
+    }
+);
