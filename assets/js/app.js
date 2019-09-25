@@ -114,6 +114,42 @@ $('#todo-form').on(
     // ES6 arrow function equiv : function(event){}
     (event) => {
         event.preventDefault(); // Empêche l'événement par défaut !
-        console.log('Hey hey... I want to manage myself...');
+
+        // Get user entries
+        let todoTitle = $('#todo-title').val().trim();
+        let todoBegin = new Date($('#begin').val());
+        let todoEnd = new Date($('#end').val());
+
+        // Add a row in the html table
+        const row = $('<tr>');
+
+        // Add a col in the brand new row
+        const checkBoxCol = $('<td>');
+
+        // Create a brand new checkbox...
+        const checkBox = $('<input>');
+        checkBox
+            .attr('type', 'checkbox')
+            .addClass('form-control')
+            .addClass('check-todo'); // Method chaining
+        // Place the checkbox into the checkBoxCol
+        checkBox.appendTo(checkBoxCol);
+
+        // Create the title col
+        const titleCol = $('<td>');
+        // Set the content of the new col
+        titleCol.html(todoTitle);
+
+        // Last (but not least...) col : buttons (see later)
+        // TODO : Ajouter les boutons
+        const buttonsCol = $('<td>');
+        buttonsCol.html('&nbsp;');
+
+        // Place those three columns on the row
+        row.append(checkBoxCol);
+        row.append(titleCol);
+        row.append(buttonsCol);
+
+        $('tbody').append(row);
     }
 );
