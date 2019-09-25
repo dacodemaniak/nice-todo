@@ -4,6 +4,7 @@
  * @version 1.0.0
  */
 import { MyDate } from './MyDate.class.js';
+import { Todo } from './Todo.class.js';
 
 // Todo form manager
 // -step 1) : Listen for a clic in the todo-form object : Complete
@@ -108,6 +109,7 @@ $('#end').attr('min', new MyDate().toString());*/
 
 /**
  * Form handling
+ * document.getElementById('todo-form');
  */
 $('#todo-form').on(
     'submit',
@@ -116,9 +118,10 @@ $('#todo-form').on(
         event.preventDefault(); // Empêche l'événement par défaut !
 
         // Get user entries
-        let todoTitle = $('#todo-title').val().trim();
-        let todoBegin = new Date($('#begin').val());
-        let todoEnd = new Date($('#end').val());
+        const todo = (new Todo())
+            .setTitle($('#todo-title').val())
+            .setBeginDate($('#begin').val())
+            .setEndDate($('#end').val());
 
         // Add a row in the html table
         const row = $('<tr>');
@@ -138,7 +141,7 @@ $('#todo-form').on(
         // Create the title col
         const titleCol = $('<td>');
         // Set the content of the new col
-        titleCol.html(todoTitle);
+        titleCol.html(todo.getTitle());
 
         // Last (but not least...) col : buttons (see later)
         // TODO : Ajouter les boutons
