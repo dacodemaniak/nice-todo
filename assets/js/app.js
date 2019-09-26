@@ -1,10 +1,13 @@
 /**
  * @name app.js
- * @author C'est moi qui l'ai fait !!!
+ * @author Pôle Numérique Team
  * @version 1.0.0
  */
 import { MyDate } from './MyDate.class.js';
 import { Todo } from './Todo.class.js';
+import { HtmlElement } from './HtmlElement.class.js';
+import { RowElement } from './RowElement.class.js';
+import { ColumnElement } from './ColumnElement.class.js';
 
 // Todo form manager
 // -step 1) : Listen for a clic in the todo-form object : Complete
@@ -124,12 +127,12 @@ $('#todo-form').on(
             .setEndDate($('#end').val());
 
         // Add a row in the html table
-        const row = $('<tr>');
+        const row = new RowElement();
 
         // Add a col in the brand new row
-        const checkBoxCol = $('<td>');
+        const checkBoxCol = new ColumnElement().setContent('nice checkbox');
 
-        // Create a brand new checkbox...
+        /* Create a brand new checkbox...
         const checkBox = $('<input>');
         checkBox
             .attr('type', 'checkbox')
@@ -137,22 +140,21 @@ $('#todo-form').on(
             .addClass('check-todo'); // Method chaining
         // Place the checkbox into the checkBoxCol
         checkBox.appendTo(checkBoxCol);
+        */
 
         // Create the title col
-        const titleCol = $('<td>');
-        // Set the content of the new col
-        titleCol.html(todo.getTitle());
+        const titleCol = new ColumnElement().setContent(todo.getTitle());
 
         // Last (but not least...) col : buttons (see later)
         // TODO : Ajouter les boutons
-        const buttonsCol = $('<td>');
-        buttonsCol.html('&nbsp;');
+        const buttonsCol = new ColumnElement().setContent('&nbsp;');
 
         // Place those three columns on the row
-        row.append(checkBoxCol);
-        row.append(titleCol);
-        row.append(buttonsCol);
+        row
+            .addChildren(checkBoxCol)
+            .addChildren(titleCol)
+            .addChildren(buttonsCol);
 
-        $('tbody').append(row);
+        $('tbody').append(row.build());
     }
 );

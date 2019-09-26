@@ -2,13 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width;initial-scale=1.0;maximum-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 
         <title>Lovely Nice Todo</title>
 
         <!-- Link some styles -->
         <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="./assets/css/styles.css" rel="stylesheet">
     </head>
 
     <body>
@@ -21,7 +20,8 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <input type="checkbox" class="form-control" id="check-all">
+                                    <input type="checkbox" class="form-check-input" id="check-all" disabled>
+                                    <label class="form-check-label" for="check-all">Tout sélectionner</label>
                                 </th>
                                 <th>
                                     Todo
@@ -48,48 +48,51 @@
 
                 <div id="todo-form-container" class="col-lg-4 col-12">
                     <form id="todo-form">
-                        <div class="form-group">
-                            <input 
-                                type="text"
-                                placeholder="A faire..."
-                                class="form-control"
-                                name="todo-title"
-                                id="todo-title"
-                            >
-                        </div>
-                        <!-- Here, the error placeholder (if todo is empty, or...) -->
-                        <div class="alert alert-warning d-none">
-                            Le titre du Todo est obligatoire...
-                        </div>
+                        <fieldset>
+                            <legend>A faire...</legend>
+                            <div class="form-group">
+                                <input 
+                                    type="text"
+                                    placeholder="A faire..."
+                                    class="form-control"
+                                    name="todo-title"
+                                    id="todo-title"
+                                >
+                            </div>
+                            <!-- Here, the error placeholder (if todo is empty, or...) -->
+                            <div class="alert alert-warning d-none">
+                                Le titre du Todo est obligatoire...
+                            </div>
 
-                        <div class="form-group">
-                            <input type="date"
-                                name="begin"
-                                id="begin"
-                                min=""
-                                placeholder="Du..."
-                                class="form-control col-6"
-                            >
-                            <input type="date"
-                                name="end"
-                                id="end"
-                                min=""
-                                placeholder="Au..."
-                                class="form-control col-6"
-                            >
-                        </div>
-                        <div class="alert alert-danger d-none">
-                            Les dates saisies sont incohérentes...
-                        </div>
-                        <div class="form-group">
-                            <button
-                                id="todo-manage"
-                                disabled
-                                class="btn btn-outline-primary"
-                            >
-                                Ajouter
-                            </button>
-                        </div>
+                            <div class="form-group">
+                                <input type="date"
+                                    name="begin"
+                                    id="begin"
+                                    min=""
+                                    placeholder="Du..."
+                                    class="form-control col-6"
+                                >
+                                <input type="date"
+                                    name="end"
+                                    id="end"
+                                    min=""
+                                    placeholder="Au..."
+                                    class="form-control col-6"
+                                >
+                            </div>
+                            <div class="alert alert-danger d-none">
+                                Les dates saisies sont incohérentes...
+                            </div>
+                            <div class="form-group">
+                                <button
+                                    id="todo-manage"
+                                    disabled
+                                    class="btn btn-outline-primary"
+                                >
+                                    Ajouter
+                                </button>
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
             </main>
@@ -100,6 +103,9 @@
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="module" src="./assets/js/MyDate.class.js"></script>
         <script type="module" src="./assets/js/Todo.class.js"></script>
+        <script type="module" src="./assets/js/HtmlElement.class.js"></script>
+        <script type="module" src="./assets/js/RowElement.class.js"></script>
+        <script type="module" src="./assets/js/ColumnElement.class.js"></script>
         <script type="module" src="./assets/js/app.js"></script>
     </body>
 </html>
